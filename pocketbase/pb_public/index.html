@@ -2,10 +2,39 @@
 <html>
 <head>
 <title>PocketBase Served Content</title>
+
+<script src="/content/js/pocketbase.iife.js"></script>
 </head>
 <body>
 
-<h1>PocketBase Served Content</h1>
+<h1>PocketBase API Served Content</h1>
+
+<input class="email" type="text" placeholder="email">
+<input class="pwd" type="password" placeholder="password">
+<button class="login">Login</button>
+
+<script>
+    // const client = new PocketBase(
+    // baseUrl = 'http://localhost:8090',
+    // lang = 'en-US',
+    // authStore = localStorage,
+    // httpConfig = {});
+
+    const client = new PocketBase('http://localhost:8090');
+
+    const email = document.querySelector('.email');
+    const pwd = document.querySelector('.pwd');
+    const submit = document.querySelector('.login');
+
+    submit.addEventListener('click', () =>
+    {
+        client.Admins.authViaEmail(email.value, pwd.value, bodyParams = {}, queryParams = {});
+        pwd.value = '';
+        console.log(localStorage.getItem("pb_admin_auth"));
+    });
+
+    // const client = new PocketBase('http://localhost:8090');
+</script>
 
 </body>
 </html>

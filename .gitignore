@@ -1,6 +1,10 @@
-#PocketBase Executables
+#PocketBase
 pocketbase-bkup/
 pocketbase/pb_data/
+
+#PocketBase SDK
+pocketbase/pb_public/node_modules/
+sdk-node/node_modules/
 
 # Logs
 logs
