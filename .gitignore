@@ -1,3 +1,7 @@
+#PocketBase Executables
+pocketbase-bkup/
+pocketbase/pb_data/
+
 # Logs
 logs
 *.log
