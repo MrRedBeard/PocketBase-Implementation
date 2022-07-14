@@ -81,6 +81,24 @@ server {
 }
 ```
 
+### Suggested by xscan
+```
+	location / {
+        proxy_set_header Connection '';
+        proxy_http_version 1.1;
+        chunked_transfer_encoding off;
+        proxy_buffering off;
+        proxy_cache off;
+        proxy_set_header  Host $http_host;
+        proxy_set_header  X-Real-IP $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Proto http;
+        proxy_set_header  X-Forwarded-Port $server_port;
+        proxy_pass http://127.0.0.1:8090/; 
+    }
+
+```
+
 Activate the directives by linking to /sites-enabled/ using the following command  
 sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf  
 sudo nginx -t  
